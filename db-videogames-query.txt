@@ -11,10 +11,44 @@ SELECT_4:
 SELECT * FROM reviews WHERE reviews.player_id = 800;
 
 SELECT_5:
+SELECT COUNT(*) FROM tournaments WHERE tournaments.year = 2015;
 
-
+SELECT_6:
+SELECT * FROM awards WHERE awards.description LIKE '%facere%';
 
 SELECT_7:
 SELECT DISTINCT videogame_id
 FROM category_videogame
 WHERE category_id = 2 or category_id = 6;
+
+SELECT_8:
+SELECT * FROM reviews WHERE reviews.rating BETWEEN 2 AND 4;
+
+SELECT_9:
+SELECT * FROM videogames WHERE YEAR(videogames.release_date) = 2020;
+
+SELECT_10:
+SELECT videogame_id FROM reviews
+WHERE reviews.rating >= 5
+GROUP BY reviews.videogame_id;
+
+SELECT videogames.id
+FROM videogames
+JOIN reviews ON reviews.videogame_id = videogames.id
+WHERE reviews.rating >= 5
+GROUP BY videogames.id;
+
+SELECT_11:
+SELECT COUNT(reviews.id) AS  review_number, AVG(reviews.rating) as avg_rating
+FROM reviews
+WHERE reviews.videogame_id = 412;
+
+SELECT_12:
+SELECT COUNT(*) AS videogames_count 
+FROM videogames
+WHERE videogames.software_house_id = 1 AND YEAR(videogames.release_date) = 2018;
+
+
+
+
+
