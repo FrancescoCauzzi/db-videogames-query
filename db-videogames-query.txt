@@ -153,8 +153,39 @@ JOIN player_tournament ON player_tournament.player_id = players.id
 JOIN tournaments ON tournaments.id = player_tournament.tournament_id
 JOIN tournament_videogame ON tournament_videogame.tournament_id = player_tournament.tournament_id
 JOIN award_videogame ON award_videogame.videogame_id = tournament_videogame.videogame_id
-WHERE award_videogame.award_id = 5 AND award_videogame.year = 2018 
+WHERE award_videogame.award_id = 5 
+AND award_videogame.year = 2018 
 AND tournaments.year = 2019;
+
+*********** BONUS ***********
+
+JOIN_10:
+SELECT TOP 1 
+videogames.id AS game_id,
+videogames.name AS game_name, 
+videogames.release_date,
+software_houses.id AS s_house_id,
+software_houses.name AS s_house_name,
+software_houses.country AS s_house_country,
+software_houses.city AS s_house_city
+FROM videogames
+JOIN software_houses ON software_houses.id = videogames.software_house_id
+ORDER BY videogames.release_date ASC;
+
+- with a subquery -
+
+SELECT 
+videogames.id AS game_id,
+videogames.name AS game_name, 
+videogames.release_date, 
+software_houses.id AS s_house_id,
+software_houses.name AS s_house_name,
+software_houses.country AS s_house_country,
+software_houses.city AS s_house_city
+FROM videogames
+JOIN software_houses ON software_houses.id = videogames.software_house_id
+WHERE videogames.release_date = (SELECT MIN(release_date) FROM videogames);
+
 
 
 
