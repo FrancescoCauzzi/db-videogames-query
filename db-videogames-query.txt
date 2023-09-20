@@ -49,6 +49,50 @@ FROM videogames
 WHERE videogames.software_house_id = 1 AND YEAR(videogames.release_date) = 2018;
 
 
+GROUP BY section:
+
+GROUP_BY_1:
+SELECT  software_houses.country, COUNT(*) AS software_houses
+FROM software_houses
+GROUP BY software_houses.country;
+
+GROUP_BY_2:
+SELECT reviews.videogame_id AS videogame_id, COUNT(*) AS review_number
+FROM reviews
+GROUP BY videogame_id;
+
+GROUP_BY_3:
+SELECT pegi_label_videogame.pegi_label_id, COUNT(*) AS number_of_videogames
+FROM pegi_label_videogame
+GROUP BY pegi_label_videogame.pegi_label_id;
+
+GROUP_BY_4:
+SELECT YEAR(videogames.release_date) AS 'year', COUNT(*) AS number_of_videogames
+FROM videogames
+GROUP BY YEAR(videogames.release_date);
+
+GROUP_BY_5:
+SELECT device_videogame.device_id, COUNT(*) AS number_of_videogames
+FROM device_videogame
+GROUP BY device_videogame.device_id;
+
+GROUP_BY_6:
+SELECT reviews.videogame_id, AVG(reviews.rating) AS average_rating
+FROM reviews
+GROUP BY reviews.videogame_id
+ORDER BY average_rating DESC;
+
+
+
+JOIN section:
+JOIN_1
+
+
+
+
+
+
+
 
 
 
