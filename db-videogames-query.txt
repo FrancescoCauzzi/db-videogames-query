@@ -147,7 +147,13 @@ JOIN awards ON awards.id = award_videogame.award_id
 WHERE awards.id = 1 AND award_videogame.year = 2018;
 
 JOIN_9:
-
+SELECT players.name FROM players
+JOIN player_tournament ON player_tournament.player_id = players.id
+JOIN tournaments ON tournaments.id = player_tournament.tournament_id
+JOIN tournament_videogame ON tournament_videogame.tournament_id = player_tournament.tournament_id
+JOIN award_videogame ON award_videogame.videogame_id = tournament_videogame.videogame_id
+WHERE award_videogame.award_id = 5 AND award_videogame.year = 2018 
+AND tournaments.year = 2019;
 
 
 
