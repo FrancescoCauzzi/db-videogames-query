@@ -1,0 +1,20 @@
+SELECT_1: 
+SELECT * FROM software_houses WHERE country = 'United States';
+
+SELECT_2:
+SELECT * FROM players WHERE city = 'Rogahnland';
+
+SELECT_3:
+SELECT * FROM players WHERE players.name LIKE '%a';
+
+SELECT_4:
+SELECT * FROM reviews WHERE reviews.player_id = 800;
+
+SELECT_5:
+
+
+
+SELECT_7:
+SELECT DISTINCT videogame_id
+FROM category_videogame
+WHERE category_id = 2 or category_id = 6;
