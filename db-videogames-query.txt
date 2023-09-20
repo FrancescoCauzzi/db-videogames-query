@@ -85,7 +85,16 @@ ORDER BY average_rating DESC;
 
 
 JOIN section:
-JOIN_1
+
+JOIN_1:
+SELECT DISTINCT players.*
+FROM players
+JOIN reviews ON reviews.player_id = players.id;
+
+JOIN_2:
+
+
+
 
 
 
