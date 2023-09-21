@@ -207,8 +207,7 @@ JOIN videogames ON videogames.software_house_id = software_houses.id
 JOIN award_videogame ON award_videogame.videogame_id = videogames.id
 WHERE award_videogame.year BETWEEN 2015 AND 2016
 GROUP BY software_houses.name, software_houses.id
-ORDER BY number_of_awards DESC
-;
+ORDER BY number_of_awards DESC;
 
 JOIN_13:
 
