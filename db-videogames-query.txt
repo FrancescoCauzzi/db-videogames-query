@@ -91,10 +91,10 @@ SELECT DISTINCT players.*
 FROM players
 JOIN reviews ON reviews.player_id = players.id;
 
-JOIN_2 (da rivedere):
+JOIN_2:
 SELECT DISTINCT videogames.name, videogames.id, tournaments.year
 FROM videogames
-JOIN tournament_videogame ON tournament_videogame.tournament_id = videogames.id
+JOIN tournament_videogame ON tournament_videogame.videogame_id = videogames.id
 JOIN tournaments ON tournaments.id = tournament_videogame.tournament_id
 WHERE tournaments.year = 2016;
 
