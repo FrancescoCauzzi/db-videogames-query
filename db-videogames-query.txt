@@ -198,6 +198,19 @@ GROUP BY videogames.id, videogames.name, videogames.release_date
 ORDER BY total_reviews DESC;
 
 JOIN_12:
+SELECT TOP 1
+software_houses.id AS s_h_id,
+software_houses.name,
+COUNT(award_videogame.id) AS number_of_awards
+FROM software_houses
+JOIN videogames ON videogames.software_house_id = software_houses.id
+JOIN award_videogame ON award_videogame.videogame_id = videogames.id
+WHERE award_videogame.year BETWEEN 2015 AND 2016
+GROUP BY software_houses.name, software_houses.id
+ORDER BY number_of_awards DESC
+;
+
+JOIN_13:
 
 
 
