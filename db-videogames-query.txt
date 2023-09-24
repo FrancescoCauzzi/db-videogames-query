@@ -209,7 +209,15 @@ WHERE award_videogame.year BETWEEN 2015 AND 2016
 GROUP BY software_houses.name, software_houses.id
 ORDER BY number_of_awards DESC;
 
-JOIN_13:
+JOIN_13(da rivedere):
+SELECT
+categories.name,
+AVG(reviews.rating) AS avg_review
+FROM categories
+JOIN category_videogame ON category_videogame.category_id = categories.id
+JOIN reviews ON reviews.videogame_id = category_videogame.videogame_id
+GROUP BY categories.name
+HAVING AVG(reviews.rating) <2;
 
 
 
